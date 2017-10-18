@@ -11,6 +11,12 @@
     <!-- Loading Flat UI -->
     <link href="css/flat-ui.css" rel="stylesheet">
 
+    <script src="js/octopus.js"></script>
+    <script src="js/translate.js"></script>
+
+
+
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
     <!--[if lt IE 9]>
@@ -23,42 +29,55 @@
     <div class = "container">
         <h1 class = "text-center text-primary">Armenian text recognizer</h1>
 
-        <div class="row">
-            <div class="col-lg-6">
-                <form role="form">
-                    <h3> Upload an image </h3>
-                    <div class="form-group">
-                        <label for="exampleInputFile">File input</label>
-                        <input type="file" id="imageFile" accept="image/*">
-                        <p class="help-block">Upload your image containing Armenian text</p>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
-            </div>
+        <div class = "form-group">
+            <div class="row">
+                <div class="col-lg-6">
+                    <form role="form">
+                        <h3> Upload an image </h3>
+                        <div class="form-group">
+                            <label for="exampleInputFile">File input</label>
+                            <input type="file" id="imageFile" accept="image/*">
+                            <p class="help-block">Upload your image containing Armenian text</p>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
 
-            <div class="col-lg-6">
-                <h3> Or input the URL </h3>
-                <div class="form-group">
-                    <div class="input-group">
-                        <input type="text" class="form-control">
-                        <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">Go!</button>
-                              </span>
+                <div class="col-lg-6">
+                    <h3> Or input the URL </h3>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id = "imgUrl">
+                            <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button" onclick="procURL()">Go!</button>
+                                  </span>
+                        </div>
                     </div>
                 </div>
+
             </div>
+        </div>
 
-    </div>
 
-        <br/>
+    <div id = "imgInfo" class = "form-group hidden" style="padding-bottom: 50px;">
+        <p> <img src="example-image.jpg" id = "armImg" alt="received-image" class="img-rounded img-responsive"> </p>
+        <p>
+            <textarea id = "recognizedText" class="form-control" rows="5" style="font-size: 16pt"></textarea>
+        </p>
 
-    <div class = "">
-        <img src="example-image.jpg" id = "" alt="received-image" class="img-rounded img-responsive">
+        <p>
+            <button type="button" class="btn btn-primary" onclick="save_text()">Save</button>
+            <button type="button" class="btn btn-success" onclick="translateText()">Translate</button>
+        </p>
+
+        <pre id = "finalText" style="font-size: 18pt;white-space: pre-wrap;">fwerewrw</pre>
     </div>
 
     <script src="js/jquery.min.js"></script>
     <script src="js/flat-ui.min.js"></script>
     <script src="js/application.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/corejs-typeahead/1.2.1/typeahead.bundle.min.js"></script>
+    <script src="js/functionality.js"></script>
 
 </body>
 </html>
